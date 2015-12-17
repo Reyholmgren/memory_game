@@ -11,20 +11,27 @@ $(document).ready(function(){
       myArray[randomIndex] = myArray[i];
       
       // Set current loop index value to be the value of the random index.        
-      myArray[i] = itemAtIndex;
-     
-      
+      myArray[i] = itemAtIndex;  
+    }
   }
-}
+
   $('#new_game').click(function(e){
     e.preventDefault();
     shuffleArray();
     console.log(myArray);
-    var tdCells = $("table").find("td");
+    var tdCells = $("td").find("span");
     for (var i = myArray.length - 1; i >=0; i--) {
       $(tdCells[i]).html(myArray[i]);
     }
   });
 
+  $("td").click(function(e){
+    $(this).children("span").toggleClass('hide');
+  });
 
 });
+
+// make a function that takes in the id of the td
+// toggles the class on the span
+
+// through that function in the click
